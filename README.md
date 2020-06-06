@@ -16,7 +16,11 @@ Install using pip:
 ```sh
 $ pip3 install kafkaconnectsync
 ```
-Or you can simply add `kafkaconnectsync` package to your `requirements.txt` file.
+
+Alternatively, you can use `setup.py` to install by cloning this repository and running:
+```sh
+$ python setup.py install
+```
 
 ## Usage
 1. Define your connectors:
