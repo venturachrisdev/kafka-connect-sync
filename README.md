@@ -9,9 +9,9 @@ Kafka Connect API connectors synchronization library
 
 The `kafkaconnectsync` library allows you to incorporate the Kafka Connect connectors/sink to your deployment code.
 
-When running Kafka Connect in distribute mode, connectors need to be added using REST methods after the API is running. Creating connectors shouldn't be a manual process so kafkaconnectsync provides functions to manage connectors as an infrastructure/deployment component.
+When running Kafka Connect in distribute mode, connectors need to be added using REST methods after the API is running. Creating connectors shouldn't be a manual process so `kafkaconnectsync` provides functions to manage connectors as an infrastructure/deployment component.
 
-To sync connectors, kafkaconnectsync reads the list of connectors and decides if it needs to create, update or delete them depending on the status of the API (i.e the existing connectors).
+To sync connectors, `kafkaconnectsync` reads the list of connectors and decides if it needs to create, update or delete them depending on the status of the API (i.e the existing connectors).
 
 ## Installing
 

@@ -23,7 +23,7 @@ def wait_for_client_info(client, timeout=600):
             response = client.get_cluster_info()
             if response['kafka_cluster_id']:
                 return response['kafka_cluster_id']
-        except exceptions.ConnectionError:
+        except exceptions.RequestException:
             print('[+] Waiting for Kafka Connect to be ready...')
 
     raise RuntimeError('[-] Kafka Connect client timeout exceeded')
