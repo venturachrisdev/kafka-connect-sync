@@ -7,9 +7,9 @@ Synchronize provided connectors with Kafka Connect sinks.
 - If the connector is not present on the API, it will be created.
 - If the connector is present on the API:
   - Present on the provided connnectors: it will be updated with the new config (if different)
-  - Not present on the provided connectors: delete it
+  - Not present on the provided connectors (and strict=True): delete it
 """
-def sync(url, connectors=[], wait_for_deployment=True, verbose=False):
+def sync(url, connectors=[], strict=True, wait_for_deployment=True, verbose=False):
   if not url:
     raise RuntimeError('[-] Missing required parameter: "url"')
   
@@ -39,8 +39,9 @@ def sync(url, connectors=[], wait_for_deployment=True, verbose=False):
       # Not present, create
       client.create(connector)
 
-  # Delete connector not present on the object anymore
-  for connector_id in existing_connectors_ids:
-    if not connector_id in connectors_ids:
-      # Delete
-      client.delete(connector_id)
+  if strict:
+    # Delete connector not present on the object anymore
+    for connector_id in existing_connectors_ids:
+      if not connector_id in connectors_ids:
+        # Delete
+        client.delete(connector_id)
