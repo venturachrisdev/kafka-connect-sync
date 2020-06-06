@@ -36,7 +36,7 @@ Or you can simply add `kafkaconnectsync` package to your `requirements.txt` file
 # Other imports...
 import sync from kafkaconnectsync
 
-url = 'https://my-kafka-connect-api.com
+url = 'https://my-kafka-connect-api.com'
 connectors = json.loads(open('connectors.json'))
 
 # ...
@@ -46,11 +46,11 @@ connectors = json.loads(open('connectors.json'))
 sync(url, connectors, wait_for_deployment=True, verbose=True)
 ```
 
-### Options
+## Options
 - **url**: You Kafka Connect API hostname.
 - **connectors**: The array of connectors objects to sync on Kafka Connect. Default: `[]`.
 - **wait_for_deployment**: Set this flag to `True` if your integrating this script to your app deployment and you want `sync` to wait until your API is available. Default: `True`.
 - **verbose**: Set this flag to `True` if you want to output sync actions to your terminal. Default: `false`.
 
 ## Contributors
-- Christopher Ventura <chrisventura.work@gmail.com>
+- Christopher Ventura <<chrisventura.work@gmail.com>>
