@@ -2,7 +2,7 @@
 import requests
 
 
-class ConnectClient:
+class ConnectClient():
     """
     REST Client for KafkaConnect API
     Implement CRUD operations for kafka connectors

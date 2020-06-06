@@ -16,7 +16,7 @@ def sync(url, connectors, strict=True, wait_for_deployment=True, verbose=False):
     if url is None:
         raise RuntimeError('[-] Missing required parameter: "url"')
 
-    if connectors is None or len(connectors) == 0:
+    if not connectors:
         if verbose:
             print('[*] No connectors to sync. Exiting...')
         return
@@ -28,7 +28,7 @@ def sync(url, connectors, strict=True, wait_for_deployment=True, verbose=False):
 
     # Get all connectors from the API
     existing_connectors_ids = client.get_all()
-    connectors_ids = map(lambda x: x['config']['name'], connectors)
+    connectors_ids = [conn['config']['name'] for conn in connectors]
 
     # Create or update connectors from object
     for connector in connectors:
