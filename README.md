@@ -1,4 +1,7 @@
 # Kafka Connect Sync
+[![Build Status](https://travis-ci.org/venturachrisdev/kafka-connect-sync.svg?branch=master)](https://travis-ci.org/venturachrisdev/kafka-connect-sync)
+[![PyPI Version](https://img.shields.io/pypi/v/kafkaconnectsync.svg)](https://pypi.python.org/pypi/kafkaconnectsync)
+[![MIT License](https://img.shields.io/pypi/l/kafkaconnectsync.svg)](https://opensource.org/licenses/MIT)
 
 Kafka Connect API connectors synchronization library
 
