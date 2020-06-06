@@ -1,0 +1,4 @@
+requests
+jsondiff
+pytest
+mock
