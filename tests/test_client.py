@@ -1,4 +1,4 @@
-from kafka_connect_sync.client import ConnectClient
+from kafkaconnectsync.client import ConnectClient
 
 # Mock implementation changes between python versions. Add support for both
 import sys
@@ -16,7 +16,7 @@ def test_client_constructor():
     assert str(e) == '[-] Missing required parameter: "url"'
 
 
-@patch('kafka_connect_sync.client.requests.get')
+@patch('kafkaconnectsync.client.requests.get')
 def test_client_get_cluster_info(mock_get):
   mock_get.return_value.ok = True
   mock_get.return_value.json.return_value = {
@@ -30,7 +30,7 @@ def test_client_get_cluster_info(mock_get):
   }
 
 
-@patch('kafka_connect_sync.client.requests.get')
+@patch('kafkaconnectsync.client.requests.get')
 def test_client_get_all(mock_get):
   connectors = [
     {
@@ -56,7 +56,7 @@ def test_client_get_all(mock_get):
   assert response == connectors
 
 
-@patch('kafka_connect_sync.client.requests.get')
+@patch('kafkaconnectsync.client.requests.get')
 def test_client_get(mock_get):
   connector = {
     'config': {
@@ -74,7 +74,7 @@ def test_client_get(mock_get):
   mock_get.assert_called_once_with('{}/connectors/one'.format(url))
 
 
-@patch('kafka_connect_sync.client.requests.delete')
+@patch('kafkaconnectsync.client.requests.delete')
 def test_client_delete(mock_delete):
   mock_delete.return_value.ok = True
 
@@ -83,7 +83,7 @@ def test_client_delete(mock_delete):
   mock_delete.assert_called_once_with('{}/connectors/one'.format(url))
 
 
-@patch('kafka_connect_sync.client.requests.post')
+@patch('kafkaconnectsync.client.requests.post')
 def test_client_create(mock_create):
   connector = {
     'config': {
@@ -104,7 +104,7 @@ def test_client_create(mock_create):
       '{}/connectors'.format(url), json=expected_response)
 
 
-@patch('kafka_connect_sync.client.requests.put')
+@patch('kafkaconnectsync.client.requests.put')
 def test_client_update(mock_put):
   connector = {
       'config': {

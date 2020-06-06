@@ -2,7 +2,7 @@ from jsondiff import diff
 import time
 
 """ Compare two json objects and return true if they are deeply equal """
-def is_json_equal(base, obj):
+def isjsonequal(base, obj):
   result = diff(base, obj)
   keys = len(result.keys())
   return keys == 0

@@ -1,4 +1,4 @@
-from kafka_connect_sync.utils import is_json_equal
+from kafkaconnectsync.utils import isjsonequal
 
 def test_objects_equality():
   base = {
@@ -9,8 +9,8 @@ def test_objects_equality():
     "test": [1],
     "hello": "world",
   }
-  assert is_json_equal(base, obj)
-  assert is_json_equal(obj, base)
+  assert isjsonequal(base, obj)
+  assert isjsonequal(obj, base)
 
 
 def test_objects_difference():
@@ -29,8 +29,8 @@ def test_objects_difference():
     }
   }
 
-  assert is_json_equal(base, obj) == False
-  assert is_json_equal(obj, base) == False
+  assert isjsonequal(base, obj) == False
+  assert isjsonequal(obj, base) == False
 
 
 def test_objects_deep_difference():
@@ -48,8 +48,8 @@ def test_objects_deep_difference():
       "test": "not_test",
     }
   }
-  assert is_json_equal(base, obj) == False
-  assert is_json_equal(obj, base) == False
+  assert isjsonequal(base, obj) == False
+  assert isjsonequal(obj, base) == False
 
 def test_partial_objects_difference():
   base = {
@@ -63,6 +63,6 @@ def test_partial_objects_difference():
       "test": "test",
     }
   }
-  assert is_json_equal(base, obj) == False
-  assert is_json_equal(obj, base) == False
+  assert isjsonequal(base, obj) == False
+  assert isjsonequal(obj, base) == False
 

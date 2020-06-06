@@ -1,5 +1,5 @@
-from kafka_connect_sync.utils import is_json_equal, wait_for_client_info
-from kafka_connect_sync.client import ConnectClient
+from kafkaconnectsync.utils import isjsonequal, wait_for_client_info
+from kafkaconnectsync.client import ConnectClient
 
 """
 Synchronize provided connectors with Kafka Connect sinks.
@@ -32,7 +32,7 @@ def sync(url, connectors=[], wait_for_deployment=True, verbose=False):
     if connector['config']['name'] in existing_connectors_ids:
       # It exists, must update
       current = client.get(connector['config']['name'])
-      is_config_equal = is_json_equal(current['config'], connector['config'])
+      is_config_equal = isjsonequal(current['config'], connector['config'])
       if not is_config_equal:
         client.update(connector)
     else:

@@ -2,7 +2,7 @@
 """
 Setup
 -----
-Install kafka_connect_sync in the current python environment.
+Install kafkaconnectsync in the current python environment.
 """
 # ----------------------------------------------------------------------------
 # Imports
@@ -35,7 +35,7 @@ def file_contents(file_name):
 
 
 setup(
-    name='kafka_connect_sync',
+    name='kafkaconnectsync',
     version='0.0.1',
     description="Kafka Connect API connectors synchronization library",
     long_description=file_contents("README.md"),
@@ -66,7 +66,7 @@ setup(
     ],
 
     packages=[
-        'kafka_connect_sync',
+        'kafkaconnectsync',
     ],
     python_requires=">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*",
     install_requires=file_contents("requirements.txt"),
