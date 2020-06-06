@@ -1,7 +1,7 @@
 from kafkaconnectsync import sync
 import json
 
-url = 'kafka-connect-api.my-app.io'
+url = 'https://kafka-connect-api.my-app.io'
 connectors = json.loads(open('connectors.json'))
 
 # ...

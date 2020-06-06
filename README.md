@@ -50,7 +50,7 @@ sync(url, connectors, wait_for_deployment=True, verbose=True)
 
 ## Documentation
 
-`sync(url, connectors, wait_for_deployment=True, verbose=False)`:
+* `sync(url, connectors, wait_for_deployment=True, verbose=False)`:
     - **url**: You Kafka Connect API hostname.
     - **connectors**: The array of connectors objects to sync on Kafka Connect. Default: `[]`.
     - **wait_for_deployment**: Set this flag to `True` if your integrating this script to your app deployment and you want `sync` to wait until your API is available. Default: `True`.
