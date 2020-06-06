@@ -39,7 +39,7 @@ setup(
     version='0.0.1',
     description="Kafka Connect API connectors synchronization library",
     long_description=file_contents("README.md"),
-    long_description_content_type='text/mardown',
+    long_description_content_type='text/markdown',
 
     author="Christopher Ventura",
     author_email="chrisventura.work@gmail.com",

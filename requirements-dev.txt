@@ -1,0 +1,7 @@
+requests
+jsondiff
+
+mock
+pytest
+pylint
+autopep8

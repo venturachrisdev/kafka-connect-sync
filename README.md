@@ -32,13 +32,22 @@ $ python setup.py install
     {
         "config": {
             "name": "my_connector_name",
-            "properties": "values"
+            "connector.class": "io.confluent.connect.s3.S3SinkConnector",
+            "tasks.max": "1",
+            "topics": "my-topic",
+            "locale": "en_US",
+            "timezone": "UTC",
+            "flush.size": "3",
         }
     },
     {
         "config": {
             "name": "my_connector_name_two",
-            "properties": "values"
+            "connector.class": "io.confluent.connect.s3.S3SinkConnector",
+            "s3.credentials.provider.class": "com.amazonaws.auth.DefaultAWSCredentialsProviderChain",
+            "topics.dir": "data",
+            "file.delim": "-",
+            "partitioner.class": "io.confluent.connect.storage.partitioner.HourlyPartitioner",
         }
     }
 ]
@@ -66,10 +75,38 @@ sync(url, connectors, strict=True, wait_for_deployment=True, verbose=True)
 
 * `sync(url, connectors=[], wait_for_deployment=True, verbose=False)`:
     - **url**: You Kafka Connect API hostname.
-    - **connectors**: The array of connectors objects to sync on Kafka Connect. Default: `[]`.
+    - **connectors**: The array of connectors objects to sync on Kafka Connect.
     - **strict**: When `strict` is enabled, apart from creating/updating connectors from the list, the sync function will remove all the API connectors that are not present on this list as a way to synchronize your list with the API. Default: `True`
     - **wait_for_deployment**: If `True`, it will keep sending requests to the Kafka Connect hosts until it becomes available. Useful if your deploying your app and the function should wait for the deployment to finish. Default: `True`.
     - **verbose**: Set this flag to `True` if you want to output action logs to your terminal. Default: `False`.
+
+## Development
+
+Clone this repo to your machine:
+```sh
+$ git clone https://github.com/venturachrisdev/kafka-connect-sync.git
+$ cd kafka-connect-sync
+```
+
+Install dependencies using pip:
+```sh
+$ pip3 install -r requirements-dev.txt
+```
+
+Use `pylint` to run linter on the project:
+```sh
+$ pylint kafkaconnectsync/; pylint tests/
+```
+
+To apply pep8 rules to the codebase, use the following command:
+```sh
+$ autopep8 --in-place --recursive kafkaconnectsync/ tests/
+```
+
+Run tests locally using:
+```sh
+$ pytest tests/
+```
 
 ## Contributors
 
