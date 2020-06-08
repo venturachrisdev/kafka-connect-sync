@@ -24,7 +24,7 @@ def sync(url, connectors, strict=True, wait_for_deployment=True, verbose=False):
     client = ConnectClient(url, verbose)
     if wait_for_deployment:
         # Do not start synchronizing until the API is deployed
-        wait_for_client_info(client)
+        wait_for_client_info(client, debug=verbose)
 
     # Get all connectors from the API
     existing_connectors_ids = client.get_all()

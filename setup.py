@@ -36,7 +36,7 @@ def file_contents(file_name):
 
 setup(
     name='kafkaconnectsync',
-    version='0.0.3',
+    version='0.0.4',
     description="Kafka Connect API connectors synchronization library",
     long_description=file_contents("README.md"),
     long_description_content_type='text/markdown',

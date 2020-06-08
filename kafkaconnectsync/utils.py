@@ -11,19 +11,20 @@ def isjsonequal(base, obj):
     return keys == 0
 
 
-def wait_for_client_info(client, timeout=600):
+def wait_for_client_info(client, timeout=300, debug=False):
     """
     Function to wait until the kafka client is accesible.
     Do not return until it can get the client info.
     """
     start = time.time()
     while time.time() - start < timeout:
-        time.sleep(1)
+        time.sleep(10)
         try:
             response = client.get_cluster_info()
             if response['kafka_cluster_id']:
                 return response['kafka_cluster_id']
         except exceptions.RequestException:
-            print('[+] Waiting for Kafka Connect to be ready...')
+            if debug:
+                print('[+] Waiting for Kafka Connect to be ready...')
 
     raise RuntimeError('[-] Kafka Connect client timeout exceeded')

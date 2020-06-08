@@ -62,7 +62,7 @@ $ python setup.py install
 import sync from kafkaconnectsync
 
 url = 'https://my-kafka-connect-api.com'
-connectors = json.loads(open('connectors.json'))
+connectors = json.loads(open('connectors.json').read())
 
 """
  ...
